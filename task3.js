@@ -11,20 +11,20 @@ async function playGame() {
 
             if (isNaN(numberFromUser) || numberFromUser.trim() === "" ) {
                 console.log('Пожалуйста, введите число.');
-                resolve(playGame());
+                playGame();
             } else {
                 numberFromUser = parseInt(numberFromUser);
 
                 if (numberFromUser === secretNumber) {
                     console.log(`Поздравляю! Вы угадали число за ${i} попыток.`);
                     rl.close();
-                    resolve(writeProtocol());
+                    writeProtocol();
                 } else if (numberFromUser < secretNumber) {
                     console.log('Загаданное число больше.');
-                    resolve(playGame());
+                    playGame();
                 } else {
                     console.log('Загаданное число меньше.');
-                    resolve(playGame());
+                    playGame();
                 }
             }
         });
